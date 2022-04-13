@@ -1,0 +1,32 @@
+{
+  "name": "${JSK_PROJECT_NAME}",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "engines": {
+    "node": ">=10.15.0",
+    "yarn": ">=1.5.1"
+  },
+  "scripts": {
+    "boot": "yarn install && lerna bootstrap --use-workspaces && npm run build",
+    "boot:clean": "npm run clean && npm run init",
+    "build": "lerna run --stream --sort build",
+    "build:prod": "npm run clean:cache && npm run build",
+    "build:publish": "npm run build:prod && lerna publish -y",
+    "clean": "lerna clean -y && npm run clean:cache",
+    "clean:cache": "lerna exec --parallel -- rimraf .tsbuildcache lib",
+    "format": "npm run format:tslint",
+    "format:tslint": "tslint --fix --config ./tslint.json 'src/**/*.{ts,tsx}'",
+    "test": "npm run build && jest --coverage"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.2",
+    "jest": "^26.0.1",
+    "ts-jest": "^26.1.0",
+    "lerna": "^3.20.2",
+    "prettier": "^2.0.5",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.6.3"
+  }
+}
