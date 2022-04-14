@@ -21,6 +21,8 @@
     "test": "npm run build && jest --coverage"
   },
   "devDependencies": {
+    "@types/node": "^17.0.23",
+    "@types/rimraf": "^3.0.2",
     "cross-env": "^7.0.2",
     "jest": "^26.0.1",
     "ts-jest": "^26.1.0",
