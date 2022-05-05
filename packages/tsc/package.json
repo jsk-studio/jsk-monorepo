@@ -1,7 +1,7 @@
 {
-  "name": "${JSK_PACKAGE_NAME}",
+  "name": "${__PACKAGE_NAME__}",
   "version": "0.0.1",
-  "author": "${JSK_PACKAGE_AUTHOR}",
+  "author": "${__PACKAGE_AUTHOR__}",
   "description": "",
   "main": "./lib/index.js",
   "sideEffects": false,
@@ -9,28 +9,20 @@
     "start": "tsc -p tsconfig.prod.json --watch",
     "build": "tsc -p tsconfig.prod.json"
   },
-  "homepage": "${JSK_PACKAGE_REPO_HOME}",
+  "homepage": "${__PACKAGE_REPO_HOME__}",
   "repository": {
     "type": "git",
-    "url": "${JSK_PACKAGE_REPO_GIT}"
+    "url": "${__PACKAGE_REPO_GIT__}"
   },
   "bugs": {
-    "url": "${JSK_PACKAGE_REPO_ISSURE}"
+    "url": "${__PACKAGE_REPO_ISSURE__}"
   },
   "license": "MIT",
   "publishConfig": {
     "access": "public"
   },
-  "peerDependencies": {
-    "@types/node": "^17.0.23",
-    "@types/rimraf": "^3.0.2",
-    "typescript": "^4.6.3",
-    "jest": "^26.0.1",
-    "ts-jest": "^26.1.0"
-  },
   "devDependencies": {
-    "@types/node": "^17.0.23",
-    "@types/rimraf": "^3.0.2",
+    "rimraf": "^3.0.2",
     "typescript": "^4.6.3",
     "jest": "^26.0.1",
     "ts-jest": "^26.1.0"
