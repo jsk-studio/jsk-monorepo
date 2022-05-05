@@ -25,8 +25,12 @@ module.exports = {
       'src/index.ts',
       'spec/index.spec.ts',
     ],
-    
-  }
+  },
+  mode: {
+    'node': {
+      packages: 'tsc',
+    },
+  },
 }
 
 function modifyText(path, val, args) {
@@ -54,7 +58,7 @@ function pkgReplacer(text, args) {
   const pkgRepoUrl = monoConfig.profile.repository || ''
   const replaceValues = {
     __PROJECT_NAME__: monoConfig.name,
-    __PACKAGE_NAME__: cmdConfig.name,
+    __PACKAGE_NAME__: cmdConfig.name || '',
     __PACKAGE_AUTHOR__: monoConfig.profile.author,
     __PACKAGE_REPO_HOME__: pkgRepoUrl && `${pkgRepoUrl}#readme`,
     __PACKAGE_REPO_GIT__: pkgRepoUrl && `git+${pkgRepoUrl}.git`,
